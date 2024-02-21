@@ -3,8 +3,9 @@ import Main from "./components/Layout/Main";
 import Intro from "./components/Intro";
 
 import "./App.css";
-import NextHours from "./components/NextHours";
+import NextHours from "./components/NextHours/NextHours";
 import TodayInfo from "./components/TodayInfo";
+import Forecasts from "./components/Forecasts/Forecasts";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Intro />
         <NextHours />
         <TodayInfo />
+        <Forecasts />
       </Main>
     </>
   );

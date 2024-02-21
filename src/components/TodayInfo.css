@@ -1,0 +1,14 @@
+.divider-line:after {
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  content: "";
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 1) 110%
+  );
+  pointer-events: none; /* so the text is still selectable */
+}

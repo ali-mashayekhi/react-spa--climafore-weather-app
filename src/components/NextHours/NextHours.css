@@ -1,0 +1,25 @@
+.fade-effect-before {
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(229, 231, 235, 1),
+    rgba(255, 255, 255, 0) 15%
+  );
+  pointer-events: none;
+}
+
+.fade-effect-after {
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(
+    to left,
+    rgba(229, 231, 235, 1),
+    rgba(255, 255, 255, 0) 15%
+  );
+  pointer-events: none;
+}
