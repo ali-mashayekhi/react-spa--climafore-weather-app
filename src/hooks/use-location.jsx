@@ -5,6 +5,7 @@ function useLocation(positionCoords) {
     queryKey: ["location", positionCoords],
     queryFn: () => fetchLocation(positionCoords),
     enabled: !!positionCoords,
+    refetchOnMount: false,
   });
 
   return location;

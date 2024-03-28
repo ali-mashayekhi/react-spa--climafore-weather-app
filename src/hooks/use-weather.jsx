@@ -5,6 +5,7 @@ function useWeather(positionCoords) {
     queryKey: [["weatherData"], positionCoords],
     queryFn: () => fetchWeather(positionCoords),
     enabled: !!positionCoords,
+    refetchOnMount: false,
   });
 
   return weather;

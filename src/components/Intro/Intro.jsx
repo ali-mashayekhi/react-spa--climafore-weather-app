@@ -2,10 +2,10 @@ import Location from "./Location";
 
 import sunny from "../../assets/sunny.png";
 import "./Intro.css";
-import useLocation from "../../hooks/use-location";
 
 function Intro() {
-  const location = useLocation();
+  console.log(location.data);
+
   return (
     <section className="grid grid-cols-1 px-2 mt-4 mb-10">
       <Location />
