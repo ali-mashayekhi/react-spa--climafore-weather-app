@@ -1,17 +1,14 @@
-import sunny from "../assets/sunny.png";
+import Location from "./Location";
+
+import sunny from "../../assets/sunny.png";
 import "./Intro.css";
+import useLocation from "../../hooks/use-location";
 
 function Intro() {
+  const location = useLocation();
   return (
     <section className="grid grid-cols-1 px-2 mt-4 mb-10">
-      <div className="flex items-center justify-between mb-4">
-        <h2 className="flex items-center text-base font-bold text-center">
-          <ion-icon className="text-lg" name="location"></ion-icon>
-          <span className="ml-0 mr-1">Tehran,</span>
-          <span className="font-normal text-gray-500">Iran</span>
-        </h2>
-        <p className="text-sm text-center text-gray-500">20 Jun 2024</p>
-      </div>
+      <Location />
 
       <div className="flex items-center justify-center mb-0">
         <img className="w-60" src={sunny} alt="sunny icon" />
