@@ -1,5 +1,5 @@
-import logo from "../../assets/logo.svg";
-import hamburger from "../../assets/hamburger.svg";
+import hamburger from "../../../assets/hamburger.svg";
+import Location from "./Location";
 
 function Header() {
   return (
@@ -8,6 +8,7 @@ function Header() {
         {/* <img className="h-3" src={logo} alt="climafore logo" /> */}
         <img className="h-3 " src={hamburger} alt="hamburger icon" />
       </div>
+      <Location />
     </header>
   );
 }
