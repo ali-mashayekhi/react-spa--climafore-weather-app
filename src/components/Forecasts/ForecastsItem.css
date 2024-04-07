@@ -1,0 +1,3 @@
+.forcasts-items-grid-cols {
+  grid-template-columns: auto auto 1fr;
+}

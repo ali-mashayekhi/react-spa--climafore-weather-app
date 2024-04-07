@@ -1,24 +1,23 @@
-.fade-effect-before {
+.forecasts-fade-effect-before {
   position: absolute;
-  top: 0;
-  left: -1%;
+  top: -1%;
   height: 100%;
   width: 100%;
   background: linear-gradient(
-    to right,
+    to bottom,
     rgba(229, 231, 235, 1),
     rgba(255, 255, 255, 0) 16%
   );
   pointer-events: none;
 }
 
-.fade-effect-after {
+.forecasts-fade-effect-after {
   position: absolute;
-  bottom: 0;
-  height: 100%;
-  width: 101%;
+  top: 0;
+  height: 101%;
+  width: 100%;
   background: linear-gradient(
-    to left,
+    to top,
     rgba(229, 231, 235, 1),
     rgba(255, 255, 255, 0) 16%
   );
