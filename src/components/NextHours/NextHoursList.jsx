@@ -1,9 +1,10 @@
 import { usePositionCoordsCtx } from "../../store/PositionCoordsCtxProvider";
 import useWeather from "../../hooks/use-weather";
 import NextHoursItem from "./NextHoursItem";
+import useImage from "../../hooks/use-image";
+import { farToCel, fixIconsNameDif } from "../../lib/helpers";
 
 import "./NextHoursList.css";
-import { farToCel } from "../../lib/helpers";
 
 function NextHoursList(props) {
   const { positionCoords } = usePositionCoordsCtx();
@@ -31,6 +32,17 @@ function NextHoursList(props) {
       onScroll={props.onScrollHandler}
     >
       {nextHours.map((nextHour) => {
+        const iconName = fixIconsNameDif(
+          nextHour.icon,
+          weatherData.currentConditions.sunrise
+        );
+        const iconData = {
+          src: useImage(iconName),
+          alt: `${
+            iconName.split("-") ? iconName.split("-").join(" ") : iconName
+          } icon`,
+        };
+
         return (
           <NextHoursItem
             key={nextHour.datetime}
@@ -39,6 +51,7 @@ function NextHoursList(props) {
               temp: farToCel(+nextHour.temp),
               hour: +nextHour.datetime.slice(0, 2) % 12 || 12,
               amOrPm: +nextHour.datetime.slice(0, 2) >= 12 ? "PM" : "AM",
+              icon: iconData,
             }}
           />
         );

@@ -17,7 +17,9 @@ async function fetchWeather(positionCoords) {
   const response = await fetch(
     `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${
       positionCoords.lat
-    },${positionCoords.lon}?key=${import.meta.env.VITE_VISUAL_CROSSING_API_KEY}`
+    },${positionCoords.lon}?key=${
+      import.meta.env.VITE_VISUAL_CROSSING_API_KEY
+    }&iconSet=icons2`
   );
 
   if (!response.ok) throw new Error("something went wrong!");

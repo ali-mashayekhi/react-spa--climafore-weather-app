@@ -7,7 +7,7 @@ function NextHoursItem({ data }) {
         {data.hour}
         <span className="ml-1">{data.amOrPm}</span>
       </p>
-      <img className="w-9 max-w-none" src={sunny} alt="sun image" />
+      <img className="w-9 max-w-none" src={data.icon.src} alt={data.icon.alt} />
       <p className="relative text-base font-bold text-center">
         {data.temp}
         <span className="absolute -top-1 -right-2">&deg;</span>

@@ -2,8 +2,8 @@ import sunny from "../../assets/sunny.png";
 
 import "./ForecastsItem.css";
 
-function ForecastItem(props) {
-  const date = new Date(props.todayData.date);
+function ForecastItem({ todayData }) {
+  const date = new Date(todayData.date);
   const dateString = `${date.getDate()} ${date.toLocaleString("default", {
     month: "short",
   })}`;
@@ -13,23 +13,27 @@ function ForecastItem(props) {
       <div className="grid justify-between gap-4 forcasts-items-grid-cols">
         <div className="flex items-center gap-4  min-w-[5.8rem] ">
           <p className="text-sm">{dateString}</p>
-          <img className="w-8" src={sunny} alt="sunny" />
+          <img
+            className="w-8"
+            src={todayData.icon.src}
+            alt={todayData.icon.alt}
+          />
         </div>
 
         <div className="flex items-center gap-7">
           <p className="relative font-bold">
-            {props.todayData.temp}
+            {todayData.temp}
             <span className="absolute -top-1 -right-2">&deg;</span>
           </p>
           <p className="relative text-sm text-gray-500">
-            {props.todayData.tempMin}
+            {todayData.tempMin}
             <span className="absolute -top-1 -right-2">&deg;</span>
           </p>
         </div>
 
         <div className="flex items-center justify-end gap-4">
           <p className="text-sm text-right text-gray-500">
-            {props.todayData.conditions}
+            {todayData.conditions}
           </p>
 
           <button className="flex items-center justify-self-end ">
