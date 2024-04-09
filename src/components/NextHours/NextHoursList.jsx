@@ -1,8 +1,7 @@
 import { usePositionCoordsCtx } from "../../store/PositionCoordsCtxProvider";
 import useWeather from "../../hooks/use-weather";
 import NextHoursItem from "./NextHoursItem";
-import useImage from "../../hooks/use-image";
-import { farToCel, fixIconsNameDif } from "../../lib/helpers";
+import { farToCel, fixIconsNameDif, setImageData } from "../../lib/helpers";
 
 import "./NextHoursList.css";
 
@@ -36,12 +35,7 @@ function NextHoursList(props) {
           nextHour.icon,
           weatherData.currentConditions.sunrise
         );
-        const iconData = {
-          src: useImage(iconName),
-          alt: `${
-            iconName.split("-") ? iconName.split("-").join(" ") : iconName
-          } icon`,
-        };
+        const iconData = setImageData(iconName);
 
         return (
           <NextHoursItem

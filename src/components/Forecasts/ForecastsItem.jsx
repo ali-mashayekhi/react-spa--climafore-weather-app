@@ -1,5 +1,3 @@
-import sunny from "../../assets/sunny.png";
-
 import "./ForecastsItem.css";
 
 function ForecastItem({ todayData }) {

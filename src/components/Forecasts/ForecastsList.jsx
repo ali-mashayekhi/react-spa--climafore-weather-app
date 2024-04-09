@@ -1,8 +1,7 @@
 import { usePositionCoordsCtx } from "../../store/PositionCoordsCtxProvider";
 import useWeather from "../../hooks/use-weather";
 import ForecastItem from "./ForecastsItem";
-import { farToCel, fixIconsNameDif } from "../../lib/helpers";
-import useImage from "../../hooks/use-image";
+import { farToCel, fixIconsNameDif, setImageData } from "../../lib/helpers";
 
 function ForecastList(props) {
   const { positionCoords } = usePositionCoordsCtx();
@@ -19,12 +18,7 @@ function ForecastList(props) {
           nextDay.icon,
           weatherData.currentConditions.sunrise
         );
-        const iconData = {
-          src: useImage(iconName),
-          alt: `${
-            iconName.split("-") ? iconName.split("-").join(" ") : iconName
-          } icon`,
-        };
+        const iconData = setImageData(iconName);
 
         const nextDayData = {
           date: nextDay.datetime,

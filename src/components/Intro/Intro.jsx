@@ -1,8 +1,8 @@
-import "./Intro.css";
 import useWeather from "../../hooks/use-weather";
 import { usePositionCoordsCtx } from "../../store/PositionCoordsCtxProvider";
-import { farToCel, fixIconsNameDif, isDay } from "../../lib/helpers";
-import useImage from "../../hooks/use-image";
+import { farToCel, fixIconsNameDif, setImageData } from "../../lib/helpers";
+
+import "./Intro.css";
 
 function Intro() {
   const { positionCoords } = usePositionCoordsCtx();
@@ -13,14 +13,7 @@ function Intro() {
     weatherData.currentConditions.icon,
     weatherData.currentConditions.sunrise
   );
-  const introIconData = {
-    src: useImage(introIconName),
-    alt: `${
-      introIconName.split("-")
-        ? introIconName.split("-").join(" ")
-        : introIconName
-    } icon`,
-  };
+  const introIconData = setImageData(introIconName);
 
   // Formating data for our usage
   const introWeatherData = {

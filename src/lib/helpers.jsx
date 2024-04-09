@@ -24,3 +24,12 @@ export function fixIconsNameDif(icon, sunrise) {
 
   return icon;
 }
+
+export function setImageData(iconName) {
+  return {
+    src: useImage(iconName),
+    alt: `${
+      iconName.split("-") ? iconName.split("-").join(" ") : iconName
+    } icon`,
+  };
+}
