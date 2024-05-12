@@ -4,3 +4,13 @@ ion-icon {
   /* color: #6b7280; */
   color: #1f2937;
 }
+
+.intro-grid-container {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 520px) {
+  .intro-grid-container {
+    grid-template-columns: auto auto auto auto;
+  }
+}

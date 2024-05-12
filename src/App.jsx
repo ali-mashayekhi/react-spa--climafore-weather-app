@@ -1,16 +1,19 @@
 import { useEffect } from "react";
 import Header from "./components/Layout/Header/Header";
-import Main from "./components/Layout/Main";
+import MainContainer from "./components/Layout/MainContainer";
 import Intro from "./components/Intro/Intro";
 import NextHours from "./components/NextHours/NextHours";
 import TodayInfo from "./components/TodayInfo";
 import Forecasts from "./components/Forecasts/Forecasts";
 import loadingSpinner from "./assets/Rolling@1.25x-1.0s-200px-200px.svg";
+import MainLayout from "./components/Layout/MainLayout";
 
 import { usePositionCoordsCtx } from "./store/PositionCoordsCtxProvider";
 
 import "./App.css";
 import useWeather from "./hooks/use-weather";
+import Chart from "./components/Chart/Chart";
+import Cities from "./components/Cities/Cities";
 
 function App() {
   const PositionCoordsCtx = usePositionCoordsCtx();
@@ -33,34 +36,38 @@ function App() {
 
   if (weather.isPending)
     return (
-      <>
+      <MainLayout>
         <Header />
-        <Main>
+        <MainContainer>
           <img className="mt-14 justify-self-center" src={loadingSpinner}></img>
-        </Main>
-      </>
+        </MainContainer>
+      </MainLayout>
     );
 
   if (weather.isError)
     return (
-      <>
+      <MainLayout>
         <Header />
-        <Main>
+        <MainContainer>
           <p className="mt-14 justify-self-center">{weather.error}</p>
-        </Main>
-      </>
+        </MainContainer>
+      </MainLayout>
     );
 
   return (
-    <>
+    <MainLayout>
       <Header />
-      <Main>
-        <Intro />
-        <NextHours />
+      <MainContainer>
+        <div className="grid grid-cols-1 ">
+          <Intro />
+          <NextHours />
+        </div>
         <TodayInfo />
         <Forecasts />
-      </Main>
-    </>
+        <Chart />
+        <Cities />
+      </MainContainer>
+    </MainLayout>
   );
 }
 

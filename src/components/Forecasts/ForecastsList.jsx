@@ -10,7 +10,7 @@ function ForecastList(props) {
 
   return (
     <ul
-      className="flex flex-col gap-2 overflow-scroll max-h-56"
+      className="flex flex-col gap-2 overflow-scroll overflow-x-hidden max-h-48"
       onScroll={props.onScrollHandler}
     >
       {nextDays.map((nextDay) => {

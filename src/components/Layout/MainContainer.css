@@ -1,0 +1,10 @@
+.main-grid {
+  grid-template-columns: 1fr;
+}
+
+@media (width >= 1024px) {
+  .main-grid {
+    grid-template-columns: 1.8fr 1fr;
+    grid-template-rows: auto auto auto;
+  }
+}

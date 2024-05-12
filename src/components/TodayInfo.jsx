@@ -16,14 +16,8 @@ function TodayInfo() {
   };
 
   return (
-    <section className="my-8">
-      <div className="relative grid grid-cols-2 gap-0 px-6">
-        {/* <div className="absolute rounded w-[20%] h-0.5 bg-gray-500 top-1/2 left-[15%]"></div>
-        <div className="absolute rounded w-[20%] h-0.5 bg-gray-500 top-1/2 right-[15%]"></div>
-        <div className="absolute rounded w-[3px] h-[20%] bg-gray-500 left-1/2 top-[20%]"></div>
-        <div className="absolute rounded w-[3px] h-[20%] bg-gray-500 left-1/2 bottom-[20%]"></div> */}
-        <div className="absolute rounded w-[2px] h-[100%] bg-gray-400 left-1/2 top-0 divider-line"></div>
-
+    <section className="flex justify-center my-8 lg:row-start-1 lg:col-start-2">
+      <div className="relative grid max-w-lg grid-cols-2 gap-0 px-6 grow">
         <div className="flex flex-col items-start gap-7">
           <div className="flex items-center justify-center gap-3">
             <div className="text-left">
@@ -59,6 +53,8 @@ function TodayInfo() {
             <i className="text-3xl text-gray-500 wi wi-showers"></i>
           </div>
         </div>
+
+        {/* <div className="absolute rounded w-[2px] h-[100%] bg-gray-400 left-1/2 top-0 divider-line"></div> */}
       </div>
     </section>
   );

@@ -1,0 +1,121 @@
+.toggle-shadow {
+  transition: 0.3s;
+}
+
+.toggle-shadow::after {
+  content: "";
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  background-color: #1f2937;
+
+  border-radius: 180px;
+
+  transition: 0.3s;
+}
+
+.darkmod-btn:checked + .toggle-shadow {
+  background: #1f2937;
+}
+
+.darkmod-btn:checked + .toggle-shadow::after {
+  left: 84px;
+  transform: translateX(-100%);
+  background-color: #d1d5db;
+}
+
+.toggle-shadow:active::after {
+  width: 40px;
+}
+
+.toggle-shadow svg {
+  position: absolute;
+  top: 9px;
+  z-index: 100;
+  width: 22px;
+  height: 22px;
+}
+
+.toggle-shadow .sun {
+  left: 9px;
+  transition: 0.3s;
+}
+
+.toggle-shadow .sun path {
+  fill: #d1d5db;
+  transition: 0.3s;
+}
+
+.toggle-shadow .moon {
+  left: 79px;
+  transform: translateX(-100%);
+  transition: 0.3s;
+}
+
+.toggle-shadow .moon path {
+  fill: #1f2937;
+  transition: 0.3s;
+}
+
+/* Temp button */
+.temp-btn label {
+  transition: 0.3s;
+}
+
+.temp-btn label::after {
+  content: "";
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  background-color: #1f2937;
+
+  border-radius: 180px;
+
+  transition: 0.3s;
+}
+
+/* .temp-btn__input:checked + .temp-btn__label {
+  background: #1f2937;
+} */
+
+.temp-btn__input:checked + .temp-btn__label::after {
+  left: 84px;
+  transform: translateX(-100%);
+}
+
+.temp-btn label:active::after {
+  width: 40px;
+}
+
+.temp-btn label p {
+  position: absolute;
+  top: 9px;
+  z-index: 100;
+  width: 22px;
+  height: 22px;
+}
+
+.temp-btn label .far {
+  left: 9px;
+  transition: 0.3s;
+  color: #d1d5db;
+}
+
+.temp-btn label .cel {
+  left: 79px;
+  transform: translateX(-100%);
+  transition: 0.3s;
+  color: #1f2937;
+}
+
+.temp-btn__input:checked + .temp-btn__label .far {
+  color: #1f2937;
+}
+
+.temp-btn__input:checked + .temp-btn__label .cel {
+  color: #d1d5db;
+}
