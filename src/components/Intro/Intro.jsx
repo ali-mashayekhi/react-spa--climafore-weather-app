@@ -8,6 +8,9 @@ function Intro() {
   const { positionCoords } = usePositionCoordsCtx();
   const { data: weatherData } = useWeather(positionCoords);
 
+  const sunriseIcon = setImageData("sunrise", "secondary-icon-set");
+  const sunsetIcon = setImageData("sunset", "secondary-icon-set");
+
   // importing icon dynamiclly and rename some of them from api call
   const introIconName = fixIconsNameDif(
     weatherData.currentConditions.icon,
@@ -51,9 +54,9 @@ function Intro() {
         </div>
 
         <div className="flex justify-between -mt-1 text-center xs:grid xs:grid-cols-2 xs:px-0 ">
-          <div className="flex flex-col">
-            <div className="xs:hidden">
-              <li className="mb-0 text-xl text-center text-gray-500 wi wi-sunrise"></li>
+          <div className="flex flex-col items-center">
+            <div className="mb-1 xs:hidden">
+              <img src={sunriseIcon.src} alt={sunriseIcon.alt} />
             </div>
             <p className="text-sm font-normal text-center xs:text-[1.75rem] xs:font-bold">
               {formatTime(introWeatherData.todaySunrise)}
@@ -65,9 +68,9 @@ function Intro() {
               Sunrise
             </p>
           </div>
-          <div className="flex flex-col">
-            <div className="xs:hidden">
-              <li className="mb-0 text-xl text-center text-gray-500 wi wi-sunset"></li>
+          <div className="flex flex-col items-center">
+            <div className="mb-1 xs:hidden">
+              <img src={sunsetIcon.src} alt={sunsetIcon.alt} />
             </div>
             <p className="text-sm font-normal text-center xs:text-[1.75rem] xs:font-bold">
               {formatTime(introWeatherData.todaySunset)}
