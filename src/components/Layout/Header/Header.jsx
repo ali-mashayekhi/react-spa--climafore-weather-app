@@ -12,20 +12,17 @@ function Header() {
   })} ${date.getFullYear()}`;
 
   return (
-    <header>
-      <div className="flex items-center justify-end h-12 px-3 xs:h-20 xs:justify-between">
-        {/* <img className="h-3" src={logo} alt="climafore logo" /> */}
-        <img
-          className="h-3 xs:hidden"
-          src={hamburger}
-          alt="hamburger icon justify-self-end"
-        />
+    <header className="h-12 xs:my-3 lg:mb-0 lg:mt-4 lg:h-auto">
+      {/* Moblie Header */}
+      <div className="flex flex-row-reverse items-center justify-between h-full xs:hidden">
+        <img className="h-3" src={hamburger} alt="hamburger icon " />
+        <Location />
+      </div>
 
-        <div className="items-center justify-between hidden px-4 text-base font-bold xs:flex">
-          <p className="text-base font-bold text-center ">{dateString}</p>
-        </div>
-
-        <div className="hidden gap-4 xs:flex">
+      {/* Desktop Header */}
+      <div className="items-center justify-between hidden h-full xs:flex">
+        <p className="text-base font-bold text-center ">{dateString}</p>
+        <div className="flex gap-5 ">
           <div className="flex items-center justify-start gap-1 px-5 py-1 pr-8 bg-gray-200 rounded-full">
             <svg
               width="30px"
@@ -108,10 +105,6 @@ function Header() {
             </label>
           </div>
         </div>
-      </div>
-
-      <div className="xs:hidden">
-        <Location />
       </div>
     </header>
   );

@@ -11,7 +11,7 @@ function Location() {
 
   if (location) {
     return (
-      <div className="flex items-center justify-between px-4 mb-4">
+      <div className="flex items-center justify-between">
         <h2 className="flex items-center text-base font-bold text-center max-w-[70%]">
           <ion-icon className="text-lg" name="location"></ion-icon>
           <span className="ml-0 mr-1 text-left">

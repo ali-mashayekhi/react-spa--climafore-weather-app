@@ -1,14 +1,19 @@
 import { useEffect, useState } from "react";
 
-function useImage(fileName) {
+function useImage(fileName, filePath) {
   const [image, setImage] = useState(null);
 
   useEffect(() => {
     const fetchImage = async () => {
       try {
-        const response = await import(
-          `../assets/3d-weather-icons/${fileName}.png`
-        );
+        let response;
+        if (filePath == "main-icon-set")
+          response = await import(`../assets/main-icon-set/${fileName}.svg`);
+        else
+          response = await import(
+            `../assets/secondary-icon-set/${fileName}.svg`
+          );
+
         setImage(response.default);
       } catch (err) {
         console.log(err);

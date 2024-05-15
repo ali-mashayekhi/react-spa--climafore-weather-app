@@ -16,18 +16,18 @@ export function isDay(sunrise) {
     return true;
 }
 
-export function fixIconsNameDif(icon, sunrise) {
+export function fixIconsNameDif(icon, sunrise = null) {
   if (icon === "fog") return "cloudy";
-  if (icon === "snow-showers-day") return "snow";
-  if (icon === "wind" && isDay(sunrise)) return "wind-day";
-  if (icon === "wind" && !isDay(sunrise)) return "wind-night";
+  // if (icon === "snow-showers-day") return "snow";
+  // if (icon === "wind" && isDay(sunrise)) return "wind-day";
+  // if (icon === "wind" && !isDay(sunrise)) return "wind-night";
 
   return icon;
 }
 
-export function setImageData(iconName) {
+export function setImageData(iconName, iconPath) {
   return {
-    src: useImage(iconName),
+    src: useImage(iconName, iconPath),
     alt: `${
       iconName.split("-") ? iconName.split("-").join(" ") : iconName
     } icon`,

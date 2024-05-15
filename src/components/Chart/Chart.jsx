@@ -23,11 +23,11 @@ function Chart() {
   ];
 
   return (
-    <section className="row-start-2 bg-gray-200 rounded-3xl lg:col-start-1">
-      <div className="px-0 py-6 ">
+    <section className="my-8 bg-gray-200 lg:row-start-2 rounded-3xl lg:col-start-1 lg:my-0">
+      <div className="px-0 py-6 lg:py-4 lg:pb-3">
         <div className="flex justify-between px-5 mb-4">
           <h2 className="px-1 mb-2 text-xl font-bold">Overview</h2>
-          <div className="flex items-center gap-3 px-4 text-gray-200 bg-gray-900 rounded-full">
+          <div className="flex items-center gap-3 px-3 text-sm text-gray-200 bg-gray-900 rounded-full">
             <p>Tempreture</p>
             <p>Humidity</p>
             <p>UV</p>

@@ -1,44 +1,115 @@
+import { useRef } from "react";
+
+import "./Cities.css";
+
 function Cities() {
+  const scrollableBox = useRef(null);
+
+  let isDown = false;
+  let startX;
+  let startY;
+  let scrollLeft;
+  let scrollTop;
+
+  function mouseDownHandler(e) {
+    isDown = true;
+    startX = e.pageX - scrollableBox.current.offsetLeft;
+    startY = e.pageY - scrollableBox.current.offsetTop;
+    scrollLeft = scrollableBox.current.scrollLeft;
+    scrollTop = scrollableBox.current.scrollTop;
+
+    scrollableBox.current.style.cursor = "grabbing";
+  }
+
+  function mouseLeaveHandler() {
+    isDown = false;
+    scrollableBox.current.style.cursor = "grab";
+  }
+
+  function mouseUpHandler() {
+    isDown = false;
+    scrollableBox.current.style.cursor = "grab";
+  }
+
+  function mouseMoveHandler(e) {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - scrollableBox.current.offsetLeft;
+    const y = e.pageY - scrollableBox.current.offsetTop;
+    const walkX = (x - startX) * 1.5; // Change this number to adjust the scroll speed
+    const walkY = (y - startY) * 1; // Change this number to adjust the scroll speed
+    scrollableBox.current.scrollLeft = scrollLeft - walkX;
+    scrollableBox.current.scrollTop = scrollTop - walkY;
+  }
+
   return (
-    <section className="lg:col-span-full">
-      <div className="flex gap-5 px-4">
-        <div className="h-24 text-center border-2 border-gray-800 border-dashed rounded-md w-28">
+    <section className="flex px-2 overflow-x-auto lg:col-span-full my-7 lg:mt-0 lg:mb-2">
+      <ul
+        className="flex gap-8 overflow-x-scroll scroll-hidden"
+        onMouseDown={mouseDownHandler}
+        onMouseUp={mouseUpHandler}
+        onMouseLeave={mouseLeaveHandler}
+        onMouseMove={mouseMoveHandler}
+        ref={scrollableBox}
+      >
+        <li className="px-5 text-center border-2 border-gray-800 border-dashed rounded-xl max-w-32">
           <h3>World Forecast</h3>
-          <p className="text-xs">Add the cities you are interested in</p>
-        </div>
+          <p className="text-[10px]">Add the cities you are interested in</p>
+        </li>
 
-        <div className="h-24 py-4 text-center bg-gray-200 rounded-md w-28">
+        <li className="px-5 py-3 text-center bg-gray-200 rounded-xl ">
           <h3>Tehran</h3>
           <h4 className="mb-2 text-xs">Iran</h4>
           <p className="text-xs">
             <span className="text-base">23</span>/22
           </p>
-        </div>
+        </li>
 
-        <div className="h-24 py-4 text-center bg-gray-200 rounded-md w-28">
+        <li className="px-5 py-3 text-center bg-gray-200 rounded-xl">
           <h3>Tehran</h3>
           <h4 className="mb-2 text-xs">Iran</h4>
           <p className="text-xs">
             <span className="text-base">23</span>/22
           </p>
-        </div>
+        </li>
 
-        <div className="h-24 py-4 text-center bg-gray-200 rounded-md w-28">
+        <li className="px-5 py-3 text-center bg-gray-200 rounded-xl">
           <h3>Tehran</h3>
           <h4 className="mb-2 text-xs">Iran</h4>
           <p className="text-xs">
             <span className="text-base">23</span>/22
           </p>
-        </div>
-
-        <div className="h-24 py-4 text-center bg-gray-200 rounded-md w-28">
+        </li>
+        <li className="px-5 py-3 text-center bg-gray-200 rounded-xl">
           <h3>Tehran</h3>
           <h4 className="mb-2 text-xs">Iran</h4>
           <p className="text-xs">
             <span className="text-base">23</span>/22
           </p>
-        </div>
-      </div>
+        </li>
+
+        <li className="px-5 py-3 text-center bg-gray-200 rounded-xl">
+          <h3>Tehran</h3>
+          <h4 className="mb-2 text-xs">Iran</h4>
+          <p className="text-xs">
+            <span className="text-base">23</span>/22
+          </p>
+        </li>
+        <li className="px-5 py-3 text-center bg-gray-200 rounded-xl">
+          <h3>Tehran</h3>
+          <h4 className="mb-2 text-xs">Iran</h4>
+          <p className="text-xs">
+            <span className="text-base">23</span>/22
+          </p>
+        </li>
+        <li className="px-5 py-3 text-center bg-gray-200 rounded-xl">
+          <h3>Tehran</h3>
+          <h4 className="mb-2 text-xs">Iran</h4>
+          <p className="text-xs">
+            <span className="text-base">23</span>/22
+          </p>
+        </li>
+      </ul>
     </section>
   );
 }

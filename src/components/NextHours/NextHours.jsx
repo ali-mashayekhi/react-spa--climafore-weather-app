@@ -21,9 +21,9 @@ function NextHours() {
   }
 
   return (
-    <section className="mb-8 xs:px-2 lg:mb-0">
-      <div className="px-5 py-5 bg-gray-200 rounded-3xl xs:py-4">
-        <div className="relative">
+    <section className="mb-8 lg:mb-0">
+      <div className="px-5 py-5 bg-gray-200 rounded-3xl xs:py-4 xs:pb-3">
+        <div className="relative ">
           <NextHoursList onScrollHandler={scrollHandler} />
           {!isAtStart && <div className="fade-effect-before"></div>}
           {!isAtEnd && <div className="fade-effect-after"></div>}

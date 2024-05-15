@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import Header from "./components/Layout/Header/Header";
 import MainContainer from "./components/Layout/MainContainer";
 import Intro from "./components/Intro/Intro";
@@ -7,13 +6,14 @@ import TodayInfo from "./components/TodayInfo";
 import Forecasts from "./components/Forecasts/Forecasts";
 import loadingSpinner from "./assets/Rolling@1.25x-1.0s-200px-200px.svg";
 import MainLayout from "./components/Layout/MainLayout";
-
-import { usePositionCoordsCtx } from "./store/PositionCoordsCtxProvider";
-
-import "./App.css";
 import useWeather from "./hooks/use-weather";
 import Chart from "./components/Chart/Chart";
 import Cities from "./components/Cities/Cities";
+
+import { useEffect } from "react";
+import { usePositionCoordsCtx } from "./store/PositionCoordsCtxProvider";
+
+import "./App.css";
 
 function App() {
   const PositionCoordsCtx = usePositionCoordsCtx();

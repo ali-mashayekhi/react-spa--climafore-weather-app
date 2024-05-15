@@ -4,10 +4,12 @@ import NextHoursItem from "./NextHoursItem";
 import { farToCel, fixIconsNameDif, setImageData } from "../../lib/helpers";
 
 import "./NextHoursList.css";
+import { useRef } from "react";
 
 function NextHoursList(props) {
   const { positionCoords } = usePositionCoordsCtx();
   const { data: weatherData } = useWeather(positionCoords);
+  const scrollableBox = useRef(null);
 
   const time = new Date();
   let nextHours = [];
@@ -25,17 +27,59 @@ function NextHoursList(props) {
     nextHours = todayNextHours.concat(tommorrowNextHours);
   } else nextHours = todayNextHours;
 
+  let isDown = false;
+  let startX;
+  let startY;
+  let scrollLeft;
+  let scrollTop;
+
+  function mouseDownHandler(e) {
+    isDown = true;
+    startX = e.pageX - scrollableBox.current.offsetLeft;
+    startY = e.pageY - scrollableBox.current.offsetTop;
+    scrollLeft = scrollableBox.current.scrollLeft;
+    scrollTop = scrollableBox.current.scrollTop;
+
+    scrollableBox.current.style.cursor = "grabbing";
+  }
+
+  function mouseLeaveHandler() {
+    isDown = false;
+    scrollableBox.current.style.cursor = "grab";
+  }
+
+  function mouseUpHandler() {
+    isDown = false;
+    scrollableBox.current.style.cursor = "grab";
+  }
+
+  function mouseMoveHandler(e) {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - scrollableBox.current.offsetLeft;
+    const y = e.pageY - scrollableBox.current.offsetTop;
+    const walkX = (x - startX) * 1.5; // Change this number to adjust the scroll speed
+    const walkY = (y - startY) * 1; // Change this number to adjust the scroll speed
+    scrollableBox.current.scrollLeft = scrollLeft - walkX;
+    scrollableBox.current.scrollTop = scrollTop - walkY;
+  }
+
   return (
     <ul
-      className="relative flex gap-8 overflow-x-scroll next-hours-list"
+      className="relative flex gap-8 overflow-y-scroll next-hours-list scroll-hidden"
       onScroll={props.onScrollHandler}
+      onMouseDown={mouseDownHandler}
+      onMouseUp={mouseUpHandler}
+      onMouseLeave={mouseLeaveHandler}
+      onMouseMove={mouseMoveHandler}
+      ref={scrollableBox}
     >
       {nextHours.map((nextHour) => {
         const iconName = fixIconsNameDif(
           nextHour.icon,
           weatherData.currentConditions.sunrise
         );
-        const iconData = setImageData(iconName);
+        const iconData = setImageData(iconName, "secondary-icon-set");
 
         return (
           <NextHoursItem

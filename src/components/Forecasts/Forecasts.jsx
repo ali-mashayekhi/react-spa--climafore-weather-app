@@ -19,7 +19,7 @@ function Forecasts() {
   }
   return (
     <section className="my-8 bg-gray-200 rounded-3xl lg:my-0 lg:col-start-2 lg:row-start-2">
-      <div className="px-5 py-5 lg:mb-5">
+      <div className="px-5 py-5 lg:pt-4 lg:pb-3 lg:mb-5">
         <h2 className="px-1 mb-2 text-xl font-bold">Forecast</h2>
         <div className="relative">
           <ForecastList onScrollHandler={scrollHandler} />

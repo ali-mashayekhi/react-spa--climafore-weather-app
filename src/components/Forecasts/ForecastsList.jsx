@@ -10,7 +10,7 @@ function ForecastList(props) {
 
   return (
     <ul
-      className="flex flex-col gap-2 overflow-scroll overflow-x-hidden max-h-48"
+      className="flex flex-col gap-2 overflow-scroll overflow-x-hidden max-h-44"
       onScroll={props.onScrollHandler}
     >
       {nextDays.map((nextDay) => {
@@ -18,7 +18,7 @@ function ForecastList(props) {
           nextDay.icon,
           weatherData.currentConditions.sunrise
         );
-        const iconData = setImageData(iconName);
+        const iconData = setImageData(iconName, "secondary-icon-set");
 
         const nextDayData = {
           date: nextDay.datetime,
