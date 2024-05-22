@@ -45,7 +45,7 @@ function Cities() {
   return (
     <section className="flex px-2 overflow-x-auto lg:col-span-full my-7 lg:mt-0 lg:mb-2">
       <ul
-        className="flex gap-8 overflow-x-scroll scroll-hidden"
+        className="flex gap-8 overflow-x-scroll scroll-hidden xs:py-2"
         onMouseDown={mouseDownHandler}
         onMouseUp={mouseUpHandler}
         onMouseLeave={mouseLeaveHandler}
@@ -57,7 +57,7 @@ function Cities() {
           <p className="text-[10px]">Add the cities you are interested in</p>
         </li>
 
-        <li className="px-5 py-3 text-center bg-gray-200 rounded-xl ">
+        <li className="px-5 py-3 text-center bg-white shadow-md rounded-xl ">
           <h3>Tehran</h3>
           <h4 className="mb-2 text-xs">Iran</h4>
           <p className="text-xs">
@@ -65,7 +65,7 @@ function Cities() {
           </p>
         </li>
 
-        <li className="px-5 py-3 text-center bg-gray-200 rounded-xl">
+        <li className="px-5 py-3 text-center bg-white shadow-md rounded-xl">
           <h3>Tehran</h3>
           <h4 className="mb-2 text-xs">Iran</h4>
           <p className="text-xs">
@@ -73,14 +73,14 @@ function Cities() {
           </p>
         </li>
 
-        <li className="px-5 py-3 text-center bg-gray-200 rounded-xl">
+        <li className="px-5 py-3 text-center bg-white shadow-md rounded-xl">
           <h3>Tehran</h3>
           <h4 className="mb-2 text-xs">Iran</h4>
           <p className="text-xs">
             <span className="text-base">23</span>/22
           </p>
         </li>
-        <li className="px-5 py-3 text-center bg-gray-200 rounded-xl">
+        <li className="px-5 py-3 text-center bg-white shadow-md rounded-xl">
           <h3>Tehran</h3>
           <h4 className="mb-2 text-xs">Iran</h4>
           <p className="text-xs">
@@ -88,21 +88,21 @@ function Cities() {
           </p>
         </li>
 
-        <li className="px-5 py-3 text-center bg-gray-200 rounded-xl">
+        <li className="px-5 py-3 text-center bg-white shadow-md rounded-xl">
           <h3>Tehran</h3>
           <h4 className="mb-2 text-xs">Iran</h4>
           <p className="text-xs">
             <span className="text-base">23</span>/22
           </p>
         </li>
-        <li className="px-5 py-3 text-center bg-gray-200 rounded-xl">
+        <li className="px-5 py-3 text-center bg-white shadow-md rounded-xl">
           <h3>Tehran</h3>
           <h4 className="mb-2 text-xs">Iran</h4>
           <p className="text-xs">
             <span className="text-base">23</span>/22
           </p>
         </li>
-        <li className="px-5 py-3 text-center bg-gray-200 rounded-xl">
+        <li className="px-5 py-3 text-center bg-white shadow-md rounded-xl">
           <h3>Tehran</h3>
           <h4 className="mb-2 text-xs">Iran</h4>
           <p className="text-xs">

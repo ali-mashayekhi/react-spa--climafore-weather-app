@@ -7,7 +7,7 @@ function ForecastItem({ todayData }) {
   })}`;
 
   return (
-    <li className="px-4 py-3 bg-gray-100 rounded-2xl">
+    <li className="px-4 py-2 shadow-sm bg-blue-50 rounded-2xl">
       <div className="grid justify-between gap-4 forcasts-items-grid-cols">
         <div className="flex items-center gap-4  min-w-[5.8rem] ">
           <p className="text-sm">{dateString}</p>

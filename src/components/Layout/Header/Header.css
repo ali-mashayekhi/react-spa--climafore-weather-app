@@ -9,7 +9,7 @@
   position: absolute;
   top: 4px;
   left: 4px;
-  background-color: #1f2937;
+  background-color: #1e40af;
 
   border-radius: 180px;
 
@@ -17,13 +17,13 @@
 }
 
 .darkmod-btn:checked + .toggle-shadow {
-  background: #1f2937;
+  background: #374151;
 }
 
 .darkmod-btn:checked + .toggle-shadow::after {
   left: 84px;
   transform: translateX(-100%);
-  background-color: #d1d5db;
+  background-color: #1e40af;
 }
 
 .toggle-shadow:active::after {
@@ -44,7 +44,12 @@
 }
 
 .toggle-shadow .sun path {
-  fill: #d1d5db;
+  fill: #e5e7eb;
+  transition: 0.3s;
+}
+
+.darkmod-btn:checked + .toggle-shadow .sun path {
+  fill: #9ca3af;
   transition: 0.3s;
 }
 
@@ -55,7 +60,12 @@
 }
 
 .toggle-shadow .moon path {
-  fill: #1f2937;
+  fill: #9ca3af;
+  transition: 0.3s;
+}
+
+.darkmod-btn:checked + .toggle-shadow .moon path {
+  fill: #e5e7eb;
   transition: 0.3s;
 }
 
@@ -71,7 +81,7 @@
   position: absolute;
   top: 4px;
   left: 4px;
-  background-color: #1f2937;
+  background-color: #1e40af;
 
   border-radius: 180px;
 
@@ -79,7 +89,7 @@
 }
 
 /* .temp-btn__input:checked + .temp-btn__label {
-  background: #1f2937;
+  background: #1e40af;
 } */
 
 .temp-btn__input:checked + .temp-btn__label::after {
@@ -109,11 +119,11 @@
   left: 79px;
   transform: translateX(-100%);
   transition: 0.3s;
-  color: #1f2937;
+  color: #1e40af;
 }
 
 .temp-btn__input:checked + .temp-btn__label .far {
-  color: #1f2937;
+  color: #1e40af;
 }
 
 .temp-btn__input:checked + .temp-btn__label .cel {

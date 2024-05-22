@@ -23,7 +23,7 @@ function Header() {
       <div className="items-center justify-between hidden h-full xs:flex">
         <p className="text-base font-bold text-center ">{dateString}</p>
         <div className="flex gap-5 ">
-          <div className="flex items-center justify-start gap-1 px-5 py-1 pr-8 bg-gray-200 rounded-full">
+          <div className="flex items-center justify-start gap-1 px-5 py-1 pr-8 bg-white rounded-full shadow">
             <svg
               width="30px"
               height="30px"
@@ -49,7 +49,7 @@ function Header() {
 
             <label
               htmlFor="darkmod-toggle"
-              className="relative block w-[88px] h-10 bg-gray-300 rounded-full cursor-pointer toggle-shadow"
+              className="relative block w-[88px] h-10 bg-white rounded-full cursor-pointer toggle-shadow shadow"
             >
               <svg
                 className="sun"
@@ -94,7 +94,7 @@ function Header() {
             />
             <label
               htmlFor="temp-input"
-              className="relative block w-[88px] h-10 bg-gray-300 rounded-full cursor-pointer temp-btn__label"
+              className="relative block w-[88px] h-10 bg-white shadow rounded-full cursor-pointer temp-btn__label"
             >
               <p className="far">
                 F<span className="absolute -top-1 ">&deg;</span>

@@ -11,9 +11,20 @@ Main:
 @tailwind utilities;
 
 body {
-  /* font-family: "Open Sans", sans-serif; */
+  font-family: "Open Sans", sans-serif;
   /* font-family: "Roboto", sans-serif; */
-  font-family: "Poppins", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
+  /* font-family: "Montserrat", sans-serif; */
+  /* font-family: "Raleway", sans-serif; */
+  /* font-family: "Quicksand", sans-serif; */
+  /* font-family: "Quicksand Book Oblique", sans-serif; */
+  /* font-family: "Quicksand Book", sans-serif; */
+  /* font-family: "Quicksand Dash", sans-serif; */
+  /* font-family: "Quicksand Light Oblique", sans-serif; */
+  /* font-family: "Quicksand Light", sans-serif; */
+  /* font-family: "Quicksand Bold Oblique", sans-serif; */
+  /* font-family: "Quicksand Bold", sans-serif; */
+
   background-color: #f9fafb;
   color: #1f2937;
 }

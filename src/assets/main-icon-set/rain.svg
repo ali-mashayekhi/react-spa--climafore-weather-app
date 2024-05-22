@@ -69,7 +69,7 @@
 </filter>
 <radialGradient id="paint0_radial_101_290" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(159.807 159.741) rotate(90) scale(158.914)">
 <stop stop-color="white"/>
-<stop offset="1" stop-color="#f9fafb"/>
+<stop offset="1" stop-color="#e5e7eb"/>
 <!-- <stop offset="1" stop-color="#D9E6EA"/> -->
 </radialGradient>
 <linearGradient id="paint1_linear_101_290" x1="31.3604" y1="39.6992" x2="312.919" y2="312.853" gradientUnits="userSpaceOnUse">

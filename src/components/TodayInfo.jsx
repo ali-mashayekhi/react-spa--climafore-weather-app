@@ -16,9 +16,9 @@ function TodayInfo() {
   };
 
   return (
-    <section className="flex justify-center px-4 my-8 lg:row-start-1 lg:col-start-2">
-      <div className="relative grid max-w-lg grid-cols-2 gap-0 grow">
-        <div className="flex flex-col items-start gap-7">
+    <section className="flex justify-center px-4 my-8 lg:items-center rounded-3xl lg:row-start-1 lg:my-0 lg:col-start-2">
+      <div className="relative grid max-w-lg grid-cols-2 gap-0 grow ">
+        <div className="flex flex-col items-center gap-7">
           <div className="flex items-center justify-center gap-3">
             <div className="text-left">
               <h3 className="text-sm text-gray-500">Humidity</h3>
@@ -34,7 +34,7 @@ function TodayInfo() {
             {/* <i className="text-3xl text-gray-500 wi wi-strong-wind"></i> */}
           </div>
         </div>
-        <div className="flex flex-col items-start pl-6 gap-7">
+        <div className="flex flex-col items-center pl-6 gap-7">
           <div className="flex items-center justify-center gap-3">
             <div className="text-left">
               <h3 className="text-sm text-gray-500">Feels like</h3>

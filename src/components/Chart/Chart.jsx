@@ -23,11 +23,11 @@ function Chart() {
   ];
 
   return (
-    <section className="my-8 bg-gray-200 lg:row-start-2 rounded-3xl lg:col-start-1 lg:my-0">
+    <section className="my-8 bg-white shadow-md lg:row-start-2 rounded-3xl lg:col-start-1 lg:my-0">
       <div className="px-0 py-6 lg:py-4 lg:pb-3">
         <div className="flex justify-between px-5 mb-4">
-          <h2 className="px-1 mb-2 text-xl font-bold">Overview</h2>
-          <div className="flex items-center gap-3 px-3 text-sm text-gray-200 bg-gray-900 rounded-full">
+          <h2 className="px-1 mb-2 text-2xl font-bold">Overview</h2>
+          <div className="flex items-center gap-3 px-3 text-sm text-gray-200 bg-blue-800 rounded-full">
             <p>Tempreture</p>
             <p>Humidity</p>
             <p>UV</p>
@@ -39,7 +39,7 @@ function Chart() {
               <Line
                 type="monotone"
                 dataKey="tempreture"
-                stroke="#8884d8"
+                stroke="#1e40af"
                 strokeWidth={3}
               />
               <CartesianGrid
@@ -54,13 +54,13 @@ function Chart() {
                 padding={{ left: 20, right: 20 }}
                 tickLine={false}
                 tickMargin={10}
-                tick={{ fill: "#8884d8", fontSize: "12px" }}
+                tick={{ fill: "#1e40af", fontSize: "12px" }}
               />
               <YAxis
                 axisLine={false}
                 tickLine={false}
                 tickMargin={10}
-                tick={{ fill: "#8884d8", fontSize: "12px" }}
+                tick={{ fill: "#1e40af", fontSize: "12px" }}
               />
 
               <Tooltip />

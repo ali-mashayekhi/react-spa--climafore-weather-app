@@ -66,7 +66,7 @@ function NextHoursList(props) {
 
   return (
     <ul
-      className="relative flex gap-8 overflow-y-scroll next-hours-list scroll-hidden"
+      className="relative flex gap-3 py-1 overflow-y-scroll next-hours-list scroll-hidden"
       onScroll={props.onScrollHandler}
       onMouseDown={mouseDownHandler}
       onMouseUp={mouseUpHandler}

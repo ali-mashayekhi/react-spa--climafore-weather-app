@@ -58,7 +58,7 @@ function App() {
     <MainLayout>
       <Header />
       <MainContainer>
-        <div className="grid grid-cols-1 ">
+        <div className="grid grid-cols-1 xs:px-2 xs:py-1 xs:rounded-3xl xs:bg-white xs:shadow-md">
           <Intro />
           <NextHours />
         </div>
