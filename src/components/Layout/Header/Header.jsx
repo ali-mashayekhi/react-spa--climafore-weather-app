@@ -12,7 +12,7 @@ function Header() {
   })} ${date.getFullYear()}`;
 
   return (
-    <header className="h-12 xs:my-3 lg:mb-0 lg:mt-4 lg:h-auto">
+    <header className="h-12 xs:my-3 lg:mb-3 lg:mt-4 lg:h-auto">
       {/* Moblie Header */}
       <div className="flex flex-row-reverse items-center justify-between h-full xs:hidden">
         <img className="h-3" src={hamburger} alt="hamburger icon " />

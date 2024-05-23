@@ -2,7 +2,6 @@ import Header from "./components/Layout/Header/Header";
 import MainContainer from "./components/Layout/MainContainer";
 import Intro from "./components/Intro/Intro";
 import NextHours from "./components/NextHours/NextHours";
-import TodayInfo from "./components/TodayInfo";
 import Forecasts from "./components/Forecasts/Forecasts";
 import loadingSpinner from "./assets/Rolling@1.25x-1.0s-200px-200px.svg";
 import MainLayout from "./components/Layout/MainLayout";
@@ -10,8 +9,8 @@ import useWeather from "./hooks/use-weather";
 import Chart from "./components/Chart/Chart";
 import Cities from "./components/Cities/Cities";
 
-import { useEffect } from "react";
 import { usePositionCoordsCtx } from "./store/PositionCoordsCtxProvider";
+import useSetCoords from "./hooks/use-set-coords";
 
 import "./App.css";
 
@@ -19,20 +18,8 @@ function App() {
   const PositionCoordsCtx = usePositionCoordsCtx();
   const weather = useWeather(PositionCoordsCtx.positionCoords);
 
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        console.log(position);
-        PositionCoordsCtx.setPositionCoords({
-          lat: position.coords.latitude,
-          lon: position.coords.longitude,
-        });
-      },
-      (error) => {
-        console.log("Error:", error.message);
-      }
-    );
-  }, [PositionCoordsCtx.setPositionCoords]);
+  // Set the coords
+  useSetCoords();
 
   if (weather.isPending)
     return (
@@ -49,7 +36,9 @@ function App() {
       <MainLayout>
         <Header />
         <MainContainer>
-          <p className="mt-14 justify-self-center">{weather.error}</p>
+          <p className="text-lg font-bold text-red-900 mt-14 justify-self-center">
+            There is a problem in getting data from server!
+          </p>
         </MainContainer>
       </MainLayout>
     );
@@ -62,7 +51,7 @@ function App() {
           <Intro />
           <NextHours />
         </div>
-        <TodayInfo />
+        <div>Map</div>
         <Forecasts />
         <Chart />
         <Cities />

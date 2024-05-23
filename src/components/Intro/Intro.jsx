@@ -1,6 +1,7 @@
 import useWeather from "../../hooks/use-weather";
 import { usePositionCoordsCtx } from "../../store/PositionCoordsCtxProvider";
 import { farToCel, fixIconsNameDif, setImageData } from "../../lib/helpers";
+import TodayInfo from "./TodayInfo";
 
 import "./Intro.css";
 
@@ -23,13 +24,35 @@ function Intro() {
     todayTemp: farToCel(+weatherData.currentConditions.temp),
     todaySunrise: weatherData.currentConditions.sunrise,
     todaySunset: weatherData.currentConditions.sunset,
-    todayCondition: weatherData.currentConditions.conditions,
+    todayCondition: weatherData.currentConditions.conditions.indexOf(",")
+      ? weatherData.currentConditions.conditions.split(",")[0]
+      : weatherData.currentConditions.conditions,
     todayIcon: introIconData,
   };
 
   return (
     <section className="px-4 mt-4 mb-10 xs:mb-0 lg:mt-0 xs:px-2">
-      <div className="grid content-center xs:text-center xs:items-center intro-grid-container">
+      <div className="flex flex-col xs:flex-row xs:gap-14">
+        <div className="flex items-center pr-10 mb-4 xs:pr-0 xs:gap-14 xs:mb-0">
+          <img
+            className="max-w-40 xs:max-w-32"
+            src={introWeatherData.todayIcon.src}
+            alt={introWeatherData.todayIcon.alt}
+          />
+          <div className="flex flex-col text-left">
+            <p className="relative text-6xl font-bold xs:text-3xl">
+              {introWeatherData.todayTemp}
+              {/* <span className="absolute top-0 flex -right-7">
+              <span className="text-2xl">&deg;</span>
+              <span className="text-2xl">C</span>
+            </span> */}
+            </p>
+            <p className="pl-1 xs:text-sm">{introWeatherData.todayCondition}</p>
+          </div>
+        </div>
+        <TodayInfo />
+      </div>
+      {/* <div className="grid content-center xs:text-center xs:items-center intro-grid-container">
         <div className="flex items-center justify-center mb-0">
           <img
             className="w-60 xs:max-w-32"
@@ -83,7 +106,7 @@ function Intro() {
             </p>
           </div>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }

@@ -36,7 +36,7 @@
 </pattern>
 <radialGradient id="paint0_radial_101_51" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(159.828 158.914) rotate(90) scale(158.914)">
 <stop stop-color="white"/>
-<stop offset="1" stop-color="#f9fafb"/>
+<stop offset="1" stop-color="#fff"/>
 <!-- <stop offset="1" stop-color="#D9E6EA"/> -->
 
 </radialGradient>

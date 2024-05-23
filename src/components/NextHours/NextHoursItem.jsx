@@ -1,6 +1,6 @@
 function NextHoursItem({ data }) {
   return (
-    <li className="flex flex-col items-center justify-between px-2 py-2 text-white shadow-sm bg-blue-50 rounded-3xl">
+    <li className="flex flex-col items-center justify-between px-2 py-2 text-white bg-white shadow-md xs:shadow-sm xs:bg-blue-50 rounded-3xl">
       <p className="text-xs text-center text-gray-600">
         {data.hour}
         <span className="ml-1">{data.amOrPm}</span>

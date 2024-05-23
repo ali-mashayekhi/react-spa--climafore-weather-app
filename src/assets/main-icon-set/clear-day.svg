@@ -63,7 +63,7 @@
                 gradientTransform="translate(158.914 158.914) rotate(90) scale(158.914)"
               >
                 <stop stop-color="white" />
-                <stop offset="1" stop-color="#f9fafb" />
+                <stop offset="1" stop-color="#fff" />
                 <!-- <stop offset="1" stop-color="#D9E6EA" /> -->
               </radialGradient>
               <linearGradient
