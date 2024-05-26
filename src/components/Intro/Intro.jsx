@@ -9,9 +9,6 @@ function Intro() {
   const { positionCoords } = usePositionCoordsCtx();
   const { data: weatherData } = useWeather(positionCoords);
 
-  const sunriseIcon = setImageData("sunrise", "secondary-icon-set");
-  const sunsetIcon = setImageData("sunset", "secondary-icon-set");
-
   // importing icon dynamiclly and rename some of them from api call
   const introIconName = fixIconsNameDif(
     weatherData.currentConditions.icon,
@@ -22,8 +19,6 @@ function Intro() {
   // Formating data for our usage
   const introWeatherData = {
     todayTemp: farToCel(+weatherData.currentConditions.temp),
-    todaySunrise: weatherData.currentConditions.sunrise,
-    todaySunset: weatherData.currentConditions.sunset,
     todayCondition: weatherData.currentConditions.conditions.indexOf(",")
       ? weatherData.currentConditions.conditions.split(",")[0]
       : weatherData.currentConditions.conditions,
@@ -31,89 +26,40 @@ function Intro() {
   };
 
   return (
-    <section className="px-4 mt-4 mb-10 xs:mb-0 lg:mt-0 xs:px-2">
-      <div className="flex flex-col xs:flex-row xs:gap-14">
-        <div className="flex items-center pr-10 mb-4 xs:pr-0 xs:gap-14 xs:mb-0">
-          <img
-            className="max-w-40 xs:max-w-32"
-            src={introWeatherData.todayIcon.src}
-            alt={introWeatherData.todayIcon.alt}
-          />
-          <div className="flex flex-col text-left">
-            <p className="relative text-6xl font-bold xs:text-3xl">
-              {introWeatherData.todayTemp}
-              {/* <span className="absolute top-0 flex -right-7">
-              <span className="text-2xl">&deg;</span>
-              <span className="text-2xl">C</span>
-            </span> */}
-            </p>
-            <p className="pl-1 xs:text-sm">{introWeatherData.todayCondition}</p>
+    <section className="px-0 mt-4 mb-1 xs:mb-0 lg:mt-0 xs:px-2">
+      <div className="flex flex-col xs:flex-row xs:gap-12">
+        <div className="px-4 py-3 xs:px-0 xs:py-0">
+          <div className="flex items-center justify-between mb-4 pr-9 xs:pr-0 xs:gap-12 xs:mb-0 xs:justify-normal">
+            <img
+              className="max-w-40 xs:max-w-32"
+              src={introWeatherData.todayIcon.src}
+              alt={introWeatherData.todayIcon.alt}
+            />
+            <div className="flex-col hidden xs:flex">
+              <p className="text-2xl font-bold ">Tehran</p>
+              <p className="text-sm text-gray-500">Iran</p>
+            </div>
+            <div className="flex flex-col text-left">
+              <p className="relative text-6xl font-bold xs:text-2xl">
+                {introWeatherData.todayTemp}
+                <span className="hidden xs:inline">&deg;</span>
+                <span className="xs:hidden">
+                  <span className="absolute text-4xl -right-3 top-1">
+                    &deg;
+                  </span>
+                  <span className="absolute text-4xl top-1 -right-9">C</span>
+                </span>
+              </p>
+              <p className="pl-1 text-gray-500 xs:text-sm max-w-16 xs:max-w-none">
+                {introWeatherData.todayCondition}
+              </p>
+            </div>
           </div>
         </div>
         <TodayInfo />
       </div>
-      {/* <div className="grid content-center xs:text-center xs:items-center intro-grid-container">
-        <div className="flex items-center justify-center mb-0">
-          <img
-            className="w-60 xs:max-w-32"
-            src={introWeatherData.todayIcon.src}
-            alt={introWeatherData.todayIcon.alt}
-          />
-        </div>
-        <div className="hidden xs:flex xs:flex-col">
-          <p className="xs:text-[1.75rem] xs:font-bold">Lille</p>
-          <p className="xs:text-sm xs:text-gray-500">France</p>
-        </div>
-        <div className="flex flex-col items-center mb-0">
-          <p className="relative mb-0 font-bold text-center text-9xl xs:text-[1.75rem] xs:font-bold">
-            {introWeatherData.todayTemp}
-            <span className="absolute top-0 text-5xl -right-5 xs:text-[1.75rem] xs:font-bold">
-              &deg;
-            </span>
-          </p>
-          <p className="text-base leading-none text-center text-gray-500 xs:text-sm xs:text-gray-500">
-            {introWeatherData.todayCondition}
-          </p>
-        </div>
-
-        <div className="flex justify-between -mt-1 text-center xs:grid xs:grid-cols-2 xs:px-0 ">
-          <div className="flex flex-col items-center">
-            <div className="mb-1 xs:hidden">
-              <img src={sunriseIcon.src} alt={sunriseIcon.alt} />
-            </div>
-            <p className="text-sm font-normal text-center xs:text-[1.75rem] xs:font-bold">
-              {formatTime(introWeatherData.todaySunrise)}
-              <span className="ml-1 text-xs xs:text-sm xs:text-gray-500 xs:font-normal">
-                AM
-              </span>
-            </p>
-            <p className="hidden xs:block xs:text-sm xs:text-gray-500">
-              Sunrise
-            </p>
-          </div>
-          <div className="flex flex-col items-center">
-            <div className="mb-1 xs:hidden">
-              <img src={sunsetIcon.src} alt={sunsetIcon.alt} />
-            </div>
-            <p className="text-sm font-normal text-center xs:text-[1.75rem] xs:font-bold">
-              {formatTime(introWeatherData.todaySunset)}
-              <span className="ml-1 text-xs xs:text-sm xs:text-gray-500 xs:font-normal">
-                PM
-              </span>
-            </p>
-            <p className="hidden xs:block xs:text-sm xs:text-gray-500">
-              Sunset
-            </p>
-          </div>
-        </div>
-      </div> */}
     </section>
   );
 }
 
 export default Intro;
-
-function formatTime(time) {
-  const timeArr = time.split(":");
-  return timeArr[0] + ":" + timeArr[1];
-}

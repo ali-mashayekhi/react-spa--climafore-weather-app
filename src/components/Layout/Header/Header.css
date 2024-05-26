@@ -109,23 +109,23 @@
   height: 22px;
 }
 
-.temp-btn label .far {
+.temp-btn label .cel {
   left: 9px;
   transition: 0.3s;
   color: #d1d5db;
 }
 
-.temp-btn label .cel {
+.temp-btn label .far {
   left: 79px;
   transform: translateX(-100%);
   transition: 0.3s;
   color: #1e40af;
 }
 
-.temp-btn__input:checked + .temp-btn__label .far {
+.temp-btn__input:checked + .temp-btn__label .cel {
   color: #1e40af;
 }
 
-.temp-btn__input:checked + .temp-btn__label .cel {
+.temp-btn__input:checked + .temp-btn__label .far {
   color: #d1d5db;
 }

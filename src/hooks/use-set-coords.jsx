@@ -1,6 +1,6 @@
 import { usePositionCoordsCtx } from "../store/PositionCoordsCtxProvider";
 import useIp from "./use-ip";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function useSetCoords() {
   const PositionCoordsCtx = usePositionCoordsCtx();
@@ -10,7 +10,6 @@ function useSetCoords() {
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        console.log(position);
         PositionCoordsCtx.setPositionCoords({
           lat: position.coords.latitude,
           lon: position.coords.longitude,
@@ -27,6 +26,16 @@ function useSetCoords() {
   useEffect(() => {
     PositionCoordsCtx.setPositionCoords(coords.data);
   }, [coords.data]);
+
+  if (coords.isError)
+    return {
+      error: {
+        message:
+          "There is a problem in getting your ip, You can search the region you want.",
+      },
+    };
+
+  return {};
 }
 
 export default useSetCoords;

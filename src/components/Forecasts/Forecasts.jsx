@@ -18,7 +18,7 @@ function Forecasts() {
       : setIsAtEnd(false);
   }
   return (
-    <section className="my-8 bg-white shadow-md rounded-3xl lg:my-0 lg:col-start-2 lg:row-start-2">
+    <section className="my-3 bg-white shadow-md rounded-3xl lg:my-0 lg:col-start-2 lg:row-start-2">
       <div className="px-5 py-5 lg:pt-4 lg:pb-3 lg:mb-5">
         <h2 className="px-1 mb-2 text-2xl font-bold">Forecast</h2>
         <div className="relative">

@@ -9,15 +9,18 @@ import "./assets/weather-icons-master/css/weather-icons-wind.css";
 import "./assets/weather-icons-master/css/weather-icons-wind.min.css";
 import "./assets/weather-icons-master/css/weather-icons.css";
 import "./assets/weather-icons-master/css/weather-icons.min.css";
+import TempUnitCtxProvider from "./store/tempUnit/TempUnitCtxProvider.jsx";
 
 const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <PositionCoordsCtxProvider>
-        <App />
-      </PositionCoordsCtxProvider>
+      <TempUnitCtxProvider>
+        <PositionCoordsCtxProvider>
+          <App />
+        </PositionCoordsCtxProvider>
+      </TempUnitCtxProvider>
     </QueryClientProvider>
   </React.StrictMode>
 );

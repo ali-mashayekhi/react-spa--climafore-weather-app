@@ -3,7 +3,16 @@ import Location from "./Location";
 
 import "./Header.css";
 
+import { useTempUnitCtx } from "../../../store/tempUnit/TempUnitCtxProvider";
+
 function Header() {
+  const { tempUnit, setTempUnit } = useTempUnitCtx();
+  console.log(tempUnit);
+
+  function tempUnitChangeHandler() {
+    setTempUnit(tempUnit === "cel" ? "far" : "cel");
+  }
+
   const date = new Date();
   const dateString = `${date.toLocaleString("default", {
     weekday: "short",
@@ -12,10 +21,10 @@ function Header() {
   })} ${date.getFullYear()}`;
 
   return (
-    <header className="h-12 xs:my-3 lg:mb-3 lg:mt-4 lg:h-auto">
+    <header className="h-16 xs:my-3 lg:mb-3 lg:mt-4 lg:h-auto">
       {/* Moblie Header */}
       <div className="flex flex-row-reverse items-center justify-between h-full xs:hidden">
-        <img className="h-3" src={hamburger} alt="hamburger icon " />
+        <img className="h-4" src={hamburger} alt="hamburger icon " />
         <Location />
       </div>
 
@@ -91,16 +100,17 @@ function Header() {
               type="checkbox"
               id="temp-input"
               className="hidden w-0 h-0 temp-btn__input"
+              onChange={tempUnitChangeHandler}
             />
             <label
               htmlFor="temp-input"
               className="relative block w-[88px] h-10 bg-white shadow rounded-full cursor-pointer temp-btn__label"
             >
-              <p className="far">
-                F<span className="absolute -top-1 ">&deg;</span>
-              </p>
               <p className="cel">
                 C<span className="absolute -top-1 ">&deg;</span>
+              </p>
+              <p className="far">
+                F<span className="absolute -top-1 ">&deg;</span>
               </p>
             </label>
           </div>

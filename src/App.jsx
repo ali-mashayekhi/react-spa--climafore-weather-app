@@ -17,9 +17,22 @@ import "./App.css";
 function App() {
   const PositionCoordsCtx = usePositionCoordsCtx();
   const weather = useWeather(PositionCoordsCtx.positionCoords);
+  console.log(weather);
 
   // Set the coords
-  useSetCoords();
+  const coordsStatus = useSetCoords();
+
+  if (coordsStatus.error)
+    return (
+      <MainLayout>
+        <Header />
+        <MainContainer>
+          <p className="text-lg font-bold text-red-900 mt-14 justify-self-center">
+            {coordsStatus.error.message}
+          </p>
+        </MainContainer>
+      </MainLayout>
+    );
 
   if (weather.isPending)
     return (
@@ -51,7 +64,7 @@ function App() {
           <Intro />
           <NextHours />
         </div>
-        <div>Map</div>
+        <div className="row-start-5 lg:col-start-2 lg:row-start-1">Map</div>
         <Forecasts />
         <Chart />
         <Cities />
