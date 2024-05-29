@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   ResponsiveContainer,
   LineChart,
@@ -7,20 +8,38 @@ import {
   CartesianGrid,
   Tooltip,
 } from "recharts";
+import { usePositionCoordsCtx } from "../../store/PositionCoordsCtxProvider";
+import useWeather from "../../hooks/use-weather";
 
 function Chart() {
-  const data = [
-    {
-      name: "Today",
-      tempreture: 23,
-    },
-    { name: "Tommorrow", tempreture: 25 },
-    { name: "14/5", tempreture: 10 },
-    { name: "14/5", tempreture: 11 },
-    { name: "15/5", tempreture: 18 },
-    { name: "16/5", tempreture: 20 },
-    { name: "17/5", tempreture: 23 },
-  ];
+  const { positionCoords } = usePositionCoordsCtx();
+  const {
+    data: { days: weatherDays },
+  } = useWeather(positionCoords);
+  const [element, setElement] = useState("tempreture");
+
+  function setElementToTempreture() {
+    setElement("tempreture");
+  }
+  function setElementHumidity() {
+    setElement("humidity");
+  }
+  function setElementUv() {
+    setElement("uv");
+  }
+
+  console.log(weatherDays);
+
+  const data = weatherDays
+    .map((day) => {
+      return {
+        name: day.dateTime,
+        tempreture: day.temp,
+        uv: day.uv,
+        humidity: day.humidity,
+      };
+    })
+    .slice(0, 7);
 
   return (
     <section className="my-8 bg-white shadow-md lg:row-start-2 rounded-3xl lg:col-start-1 lg:my-0">
@@ -28,9 +47,9 @@ function Chart() {
         <div className="flex justify-between px-2 mb-4">
           <h2 className="mb-2 text-2xl font-bold">Overview</h2>
           <div className="flex items-center gap-3 px-3 text-sm text-gray-200 bg-blue-800 rounded-full">
-            <p>Tempreture</p>
-            <p>Humidity</p>
-            <p>UV</p>
+            <button onClick={setElementToTempreture}>Tempreture</button>
+            <button onClick={setElementHumidity}>Humidity</button>
+            <button onClick={setElementUv}>UV</button>
           </div>
         </div>
         <div className="mr-6 -ml-2">
@@ -38,7 +57,7 @@ function Chart() {
             <LineChart width={400} height={400} data={data}>
               <Line
                 type="monotone"
-                dataKey="tempreture"
+                dataKey={element}
                 stroke="#1e40af"
                 strokeWidth={3}
               />
@@ -57,6 +76,7 @@ function Chart() {
                 tick={{ fill: "#1e40af", fontSize: "12px" }}
               />
               <YAxis
+                // dataKey={element}
                 axisLine={false}
                 tickLine={false}
                 tickMargin={10}

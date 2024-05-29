@@ -7,7 +7,6 @@ import { useTempUnitCtx } from "../../../store/tempUnit/TempUnitCtxProvider";
 
 function Header() {
   const { tempUnit, setTempUnit } = useTempUnitCtx();
-  console.log(tempUnit);
 
   function tempUnitChangeHandler() {
     setTempUnit(tempUnit === "cel" ? "far" : "cel");

@@ -17,7 +17,6 @@ import "./App.css";
 function App() {
   const PositionCoordsCtx = usePositionCoordsCtx();
   const weather = useWeather(PositionCoordsCtx.positionCoords);
-  console.log(weather);
 
   // Set the coords
   const coordsStatus = useSetCoords();
@@ -64,7 +63,9 @@ function App() {
           <Intro />
           <NextHours />
         </div>
-        <div className="row-start-5 lg:col-start-2 lg:row-start-1">Map</div>
+        <div className="flex items-center justify-center row-start-5 bg-white shadow-md lg:col-start-2 lg:row-start-1 rounded-3xl">
+          This is a Map
+        </div>
         <Forecasts />
         <Chart />
         <Cities />

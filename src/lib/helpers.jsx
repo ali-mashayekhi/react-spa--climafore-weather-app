@@ -33,3 +33,7 @@ export function setImageData(iconName, iconPath) {
     } icon`,
   };
 }
+
+export function changeTempUnit(unit, temp) {
+  return unit === "cel" ? farToCel(+temp) : Math.round(temp);
+}

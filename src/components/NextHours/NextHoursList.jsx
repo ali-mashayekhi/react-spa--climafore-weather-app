@@ -8,24 +8,13 @@ import { useRef } from "react";
 
 function NextHoursList(props) {
   const { positionCoords } = usePositionCoordsCtx();
-  const { data: weatherData } = useWeather(positionCoords);
+  const {
+    data: {
+      days: [weatherData],
+    },
+  } = useWeather(positionCoords);
+
   const scrollableBox = useRef(null);
-
-  const time = new Date();
-  let nextHours = [];
-
-  const todayNextHours = weatherData.days[0].hours.filter((hour) => {
-    return +hour.datetime.slice(0, 2) > time.getHours() + 1;
-  });
-
-  // Set nextHours array which has next 24 hours
-  if (todayNextHours.length < 24) {
-    const tommorrowNextHours = weatherData.days[1].hours.slice(
-      0,
-      24 - todayNextHours.length
-    );
-    nextHours = todayNextHours.concat(tommorrowNextHours);
-  } else nextHours = todayNextHours;
 
   let isDown = false;
   let startX;
@@ -74,21 +63,15 @@ function NextHoursList(props) {
       onMouseMove={mouseMoveHandler}
       ref={scrollableBox}
     >
-      {nextHours.map((nextHour) => {
-        const iconName = fixIconsNameDif(
-          nextHour.icon,
-          weatherData.currentConditions.sunrise
-        );
+      {weatherData.hours.map((nextHour, index) => {
+        const iconName = fixIconsNameDif(nextHour.icon, weatherData.sunrise);
         const iconData = setImageData(iconName, "secondary-icon-set");
 
         return (
           <NextHoursItem
-            key={nextHour.datetime}
+            key={index}
             data={{
-              condition: nextHour.conditions,
-              temp: farToCel(+nextHour.temp),
-              hour: +nextHour.datetime.slice(0, 2) % 12 || 12,
-              amOrPm: +nextHour.datetime.slice(0, 2) >= 12 ? "PM" : "AM",
+              ...nextHour,
               icon: iconData,
             }}
           />
