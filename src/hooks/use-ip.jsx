@@ -6,6 +6,7 @@ function useIp(geolocationError) {
     queryFn: getCoordsByIp,
     enabled: !!geolocationError,
   });
+  console.log(coords);
 
   return coords;
 }
@@ -13,7 +14,8 @@ function useIp(geolocationError) {
 export default useIp;
 
 async function getCoordsByIp() {
-  const response = await fetch("http://ip-api.com/json/?fields=lat,lon");
+  const response = await fetch("https://ipapi.co/json/");
   if (!response.ok) throw new Error("Something Goes Wrong");
+
   return response.json();
 }

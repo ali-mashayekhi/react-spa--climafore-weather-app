@@ -19,12 +19,15 @@ function useSetCoords() {
         console.log("Error:", error.message);
         setGeolocationError(true);
       },
-      { timeout: 3000 }
+      { timeout: 2000 }
     );
   }, []);
 
   useEffect(() => {
-    PositionCoordsCtx.setPositionCoords(coords.data);
+    PositionCoordsCtx.setPositionCoords({
+      lat: coords?.data?.latitude,
+      lon: coords?.data?.longitude,
+    });
   }, [coords.data]);
 
   if (coords.isError)
