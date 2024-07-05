@@ -7,10 +7,17 @@ import {
   useMap,
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import "leaflet/dist/images/marker-shadow.png";
+import L from "leaflet";
 
 function Map() {
   const { positionCoords: position } = usePositionCoordsCtx();
+
+  const myIcon = L.icon({
+    iconUrl: "/my-icon.png",
+    iconSize: [40, 40],
+    iconAnchor: [12.5, 41],
+    popupAnchor: [0, -41],
+  });
 
   return (
     <section className="z-0 my-6 lg:my-0">
@@ -32,7 +39,7 @@ function Map() {
               subdomains: 'abcd',
               maxZoom: 20
             }); */}
-        <Marker position={[position.lat, position.lon]}>
+        <Marker position={[position.lat, position.lon]} icon={myIcon}>
           {/* <Popup>
             A pretty CSS3 popup. <br /> Easily customizable.
           </Popup> */}
