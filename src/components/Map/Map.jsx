@@ -7,6 +7,7 @@ import {
   useMap,
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import "leaflet/dist/images/marker-shadow.png";
 
 function Map() {
   const { positionCoords: position } = usePositionCoordsCtx();
