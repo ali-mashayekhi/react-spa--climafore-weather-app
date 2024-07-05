@@ -29,7 +29,7 @@ function Header() {
       </div>
 
       {/* Desktop Header */}
-      <div className="items-center justify-between hidden h-full xs:flex">
+      <div className="items-center justify-between hidden h-full xs:flex ">
         <p className="text-base font-bold text-center ">{dateString}</p>
         <div className="flex gap-5 ">
           <Search />

@@ -48,7 +48,7 @@ function Search() {
 
   return (
     <div
-      className={`relative  bg-white shadow z-50  ${
+      className={`relative w-[21.1805vw] bg-white shadow z-50  ${
         isOpen ? "rounded-t-[20px]" : "rounded-full"
       }`}
     >
