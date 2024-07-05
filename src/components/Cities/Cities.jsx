@@ -1,9 +1,45 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 import "./Cities.css";
+import City from "./City";
+import { usePositionCoordsCtx } from "../../store/PositionCoordsCtxProvider";
+import useLocation from "../../hooks/use-location";
+import { useWatchCitiesCtx } from "../../store/watchCities/WatchedCitiesCtxProvider";
 
 function Cities() {
   const scrollableBox = useRef(null);
+  const { positionCoords: position, setPositionCoords: setPosition } =
+    usePositionCoordsCtx();
+  const currentCityData = useLocation(position);
+  const currentCityName =
+    currentCityData?.data?.address?.city ||
+    currentCityData?.data?.address?.town ||
+    currentCityData?.data?.address?.neighbourhood ||
+    currentCityData?.data?.address?.village ||
+    currentCityData?.data?.address?.state;
+
+  const { watchedCities, setWatchedCities } = useWatchCitiesCtx();
+  const watchedCitiesData = useLocation(watchedCities);
+  const watchedCityNames = watchedCitiesData.map((location) => {
+    return (
+      location?.data?.address?.city ||
+      location?.data?.address?.town ||
+      location?.data?.address?.neighbourhood ||
+      location?.data?.address?.village ||
+      location?.data?.address?.state
+    );
+  });
+
+  function addCityHandler() {
+    if (watchedCityNames.indexOf(currentCityName) !== -1) return;
+    setWatchedCities((w) => {
+      return [position, ...w];
+    });
+  }
+
+  function changeActiveCity(coords) {
+    setPosition(coords);
+  }
 
   let isDown = false;
   let startX;
@@ -52,35 +88,24 @@ function Cities() {
         onMouseMove={mouseMoveHandler}
         ref={scrollableBox}
       >
-        <li className="px-5 text-center border-2 border-gray-800 border-dashed rounded-xl max-w-32">
+        <li
+          className="px-5 text-center border-2 border-gray-800 border-dashed rounded-xl max-w-32"
+          onClick={addCityHandler}
+        >
           <h3>World Forecast</h3>
           <p className="text-[10px]">Add the cities you are interested in</p>
         </li>
 
-        <li className="px-5 py-3 text-center bg-white shadow-md rounded-xl ">
-          <h3>Tehran</h3>
-          <h4 className="mb-2 text-xs">Iran</h4>
-          <p className="text-xs">
-            <span className="text-base">23</span>/22
-          </p>
-        </li>
+        {watchedCities.map((watchedCity) => {
+          return (
+            <City
+              positionCoords={watchedCity}
+              onChangeActiveCity={changeActiveCity}
+            />
+          );
+        })}
 
-        <li className="px-5 py-3 text-center bg-white shadow-md rounded-xl">
-          <h3>Tehran</h3>
-          <h4 className="mb-2 text-xs">Iran</h4>
-          <p className="text-xs">
-            <span className="text-base">23</span>/22
-          </p>
-        </li>
-
-        <li className="px-5 py-3 text-center bg-white shadow-md rounded-xl">
-          <h3>Tehran</h3>
-          <h4 className="mb-2 text-xs">Iran</h4>
-          <p className="text-xs">
-            <span className="text-base">23</span>/22
-          </p>
-        </li>
-        <li className="px-5 py-3 text-center bg-white shadow-md rounded-xl">
+        {/* <li className="px-5 py-3 text-center bg-white shadow-md rounded-xl">
           <h3>Tehran</h3>
           <h4 className="mb-2 text-xs">Iran</h4>
           <p className="text-xs">
@@ -102,6 +127,7 @@ function Cities() {
             <span className="text-base">23</span>/22
           </p>
         </li>
+
         <li className="px-5 py-3 text-center bg-white shadow-md rounded-xl">
           <h3>Tehran</h3>
           <h4 className="mb-2 text-xs">Iran</h4>
@@ -109,6 +135,20 @@ function Cities() {
             <span className="text-base">23</span>/22
           </p>
         </li>
+        <li className="px-5 py-3 text-center bg-white shadow-md rounded-xl">
+          <h3>Tehran</h3>
+          <h4 className="mb-2 text-xs">Iran</h4>
+          <p className="text-xs">
+            <span className="text-base">23</span>/22
+          </p>
+        </li>
+        <li className="px-5 py-3 text-center bg-white shadow-md rounded-xl">
+          <h3>Tehran</h3>
+          <h4 className="mb-2 text-xs">Iran</h4>
+          <p className="text-xs">
+            <span className="text-base">23</span>/22
+          </p>
+        </li> */}
       </ul>
     </section>
   );

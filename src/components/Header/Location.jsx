@@ -1,5 +1,5 @@
-import useLocation from "../../../hooks/use-location";
-import { usePositionCoordsCtx } from "../../../store/PositionCoordsCtxProvider";
+import useLocation from "../../hooks/use-location";
+import { usePositionCoordsCtx } from "../../store/PositionCoordsCtxProvider";
 
 function Location() {
   const { positionCoords } = usePositionCoordsCtx();

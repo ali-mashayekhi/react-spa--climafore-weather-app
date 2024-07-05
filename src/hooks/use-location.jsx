@@ -1,13 +1,30 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQueries, useQuery } from "@tanstack/react-query";
 
 function useLocation(positionCoords) {
-  const location = useQuery({
-    queryKey: ["location", positionCoords],
-    queryFn: () => fetchLocation(positionCoords),
-    enabled: !!positionCoords,
-    refetchOnMount: false,
-  });
+  let location;
+  if (positionCoords instanceof Array) {
+    if (positionCoords.length > 1) {
+      location = useQueries({
+        queries: positionCoords.map((position) => {
+          console.log(position);
 
+          return {
+            queryKey: ["location", position],
+            queryFn: () => fetchLocation(position),
+            enabled: !!position,
+            refetchOnMount: false,
+          };
+        }),
+      });
+    }
+  } else {
+    location = useQuery({
+      queryKey: ["location", positionCoords],
+      queryFn: () => fetchLocation(positionCoords),
+      enabled: !!positionCoords,
+      refetchOnMount: false,
+    });
+  }
   return location;
 }
 

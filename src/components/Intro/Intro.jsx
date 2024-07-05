@@ -10,7 +10,6 @@ import useLocation from "../../hooks/use-location";
 function Intro() {
   const { positionCoords } = usePositionCoordsCtx();
   const { data: location } = useLocation(positionCoords);
-  console.log(location);
 
   const {
     data: {

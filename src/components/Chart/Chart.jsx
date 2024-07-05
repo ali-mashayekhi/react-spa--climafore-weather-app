@@ -16,19 +16,25 @@ function Chart() {
   const {
     data: { days: weatherDays },
   } = useWeather(positionCoords);
-  const [element, setElement] = useState("tempreture");
+  const [element, setElement] = useState({ title: "tempreture", id: "1" });
+  const [activeElementWidth, setActiveElementWidth] = useState(null);
 
-  function setElementToTempreture() {
-    setElement("tempreture");
-  }
-  function setElementHumidity() {
-    setElement("humidity");
-  }
-  function setElementUv() {
-    setElement("uv");
+  console.log(activeElementWidth);
+
+  function setActiveElement(e) {
+    const targetId = e.target.id;
+    setActiveElementWidth(e.target.offsetWidth);
+
+    if (targetId === "1") {
+      setElement({ title: "tempreture", id: "1" });
+    } else if (targetId === "2") {
+      setElement({ title: "humidity", id: "2" });
+    } else if (targetId === "3") {
+      setElement({ title: "uv", id: "3" });
+    }
   }
 
-  console.log(weatherDays);
+  const buttons = ["Tempreture", "Humidity", "UV"];
 
   const data = weatherDays
     .map((day) => {
@@ -41,15 +47,32 @@ function Chart() {
     })
     .slice(0, 7);
 
+  console.log(activeElementWidth);
+
   return (
     <section className="my-8 bg-white shadow-md lg:row-start-2 rounded-3xl lg:col-start-1 lg:my-0">
       <div className="px-0 py-6 lg:py-4 lg:pb-3">
-        <div className="flex justify-between px-2 mb-4">
+        <div className="flex justify-between px-5 mb-4">
           <h2 className="mb-2 text-2xl font-bold">Overview</h2>
-          <div className="flex items-center gap-3 px-3 text-sm text-gray-200 bg-blue-800 rounded-full">
-            <button onClick={setElementToTempreture}>Tempreture</button>
-            <button onClick={setElementHumidity}>Humidity</button>
-            <button onClick={setElementUv}>UV</button>
+          <div className="relative flex items-center text-sm text-gray-200 rounded-full bg-blue-50 max-h-9">
+            {buttons.map((button, i) => (
+              <button
+                onClick={setActiveElement}
+                className={`z-20 h-full px-4 rounded-full duration-300 ${
+                  `${i + 1}` !== element.id ? "text-gray-800" : "text-white"
+                } `}
+                id={i + 1}
+              >
+                {button}
+              </button>
+            ))}
+
+            <div
+              className={`absolute bg-blue-800 h-full rounded-full duration-300 z-10 ${
+                element.id === "1" ? "w-[110px] left-0" : ""
+              } ${element.id === "2" ? "w-[92px] left-[110px]" : ""}
+               ${element.id === "3" ? "w-[51px] left-[202px]" : ""}`}
+            ></div>
           </div>
         </div>
         <div className="mr-6 -ml-2">
@@ -57,7 +80,7 @@ function Chart() {
             <LineChart width={400} height={400} data={data}>
               <Line
                 type="monotone"
-                dataKey={element}
+                dataKey={element.title}
                 stroke="#1e40af"
                 strokeWidth={3}
               />
@@ -93,3 +116,14 @@ function Chart() {
 }
 
 export default Chart;
+
+function ToggleBtn({ children }) {
+  return (
+    <button
+      onClick={setElementToTempreture}
+      className="px-2 bg-blue-800 rounded-full"
+    >
+      {children}
+    </button>
+  );
+}

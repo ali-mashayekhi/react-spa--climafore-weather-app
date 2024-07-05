@@ -1,7 +1,15 @@
 import { usePositionCoordsCtx } from "../../store/PositionCoordsCtxProvider";
 import useWeather from "../../hooks/use-weather";
 import NextHoursItem from "./NextHoursItem";
-import { farToCel, fixIconsNameDif, setImageData } from "../../lib/helpers";
+import { fixIconsNameDif, setImageData } from "../../lib/helpers";
+
+// import Swiper JS
+import { Swiper, SwiperSlide } from "swiper/react";
+// import required modules
+import { Scrollbar } from "swiper/modules";
+// import Swiper styles
+import "swiper/css";
+import "swiper/css/scrollbar";
 
 import "./NextHoursList.css";
 import { useRef } from "react";

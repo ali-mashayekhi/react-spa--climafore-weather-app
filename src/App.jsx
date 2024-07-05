@@ -1,4 +1,4 @@
-import Header from "./components/Layout/Header/Header";
+import Header from "./components/Header/Header";
 import MainContainer from "./components/Layout/MainContainer";
 import Intro from "./components/Intro/Intro";
 import NextHours from "./components/NextHours/NextHours";
@@ -8,6 +8,7 @@ import MainLayout from "./components/Layout/MainLayout";
 import useWeather from "./hooks/use-weather";
 import Chart from "./components/Chart/Chart";
 import Cities from "./components/Cities/Cities";
+import Map from "./components/Map/Map";
 
 import { usePositionCoordsCtx } from "./store/PositionCoordsCtxProvider";
 import useSetCoords from "./hooks/use-set-coords";
@@ -63,9 +64,7 @@ function App() {
           <Intro />
           <NextHours />
         </div>
-        <div className="flex items-center justify-center row-start-5 bg-white shadow-md lg:col-start-2 lg:row-start-1 rounded-3xl">
-          This is a Map
-        </div>
+        <Map />
         <Forecasts />
         <Chart />
         <Cities />

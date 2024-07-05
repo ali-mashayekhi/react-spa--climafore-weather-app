@@ -8,7 +8,6 @@ function TodayInfo() {
       days: [weatherData],
     },
   } = useWeather(positionCoords);
-  console.log(weatherData);
 
   return (
     <div className="flex justify-between px-6 py-3 bg-white rounded-full shadow-md xs:px-0 xs:py-0 xs:rounded-none xs:shadow-none xs:gap-12 xs:items-center">

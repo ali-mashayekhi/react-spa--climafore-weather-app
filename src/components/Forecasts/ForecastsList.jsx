@@ -8,7 +8,6 @@ function ForecastList(props) {
   const {
     data: { days: weatherData },
   } = useWeather(positionCoords);
-  console.log(weatherData);
 
   return (
     <ul
