@@ -95,7 +95,7 @@ function Header() {
               </svg>
             </label>
           </div> */}
-          <div className="temp-btn ">
+          {/* <div className="temp-btn ">
             <input
               type="checkbox"
               id="temp-input"
@@ -113,7 +113,7 @@ function Header() {
                 F<span className="absolute -top-1 ">&deg;</span>
               </p>
             </label>
-          </div>
+          </div> */}
         </div>
       </div>
 
