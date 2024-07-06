@@ -52,9 +52,9 @@ function Chart() {
   return (
     <section className="my-8 bg-white shadow-md lg:row-start-2 rounded-3xl lg:col-start-1 lg:my-0">
       <div className="px-0 py-6 lg:py-4 lg:pb-3">
-        <div className="flex justify-between px-5 mb-4">
+        <div className="px-5 mb-4  md:justify-between md:flex md:flex-row">
           <h2 className="mb-2 text-2xl font-bold">Overview</h2>
-          <div className="relative flex items-center text-sm text-gray-200 rounded-full bg-blue-50 max-h-9">
+          <div className="relative flex items-center text-sm text-gray-200 rounded-full bg-blue-50 max-h-9 min-h-9">
             {buttons.map((button, i) => (
               <button
                 onClick={setActiveElement}

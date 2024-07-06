@@ -33,7 +33,7 @@
 .toggle-shadow svg {
   position: absolute;
   top: 9px;
-  z-index: 100;
+  z-index: 40;
   width: 22px;
   height: 22px;
 }
@@ -104,7 +104,7 @@
 .temp-btn label p {
   position: absolute;
   top: 9px;
-  z-index: 100;
+  z-index: 40;
   width: 22px;
   height: 22px;
 }

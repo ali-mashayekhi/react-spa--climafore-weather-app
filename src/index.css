@@ -10,7 +10,12 @@ Main:
 @tailwind components;
 @tailwind utilities;
 
+html {
+  overflow-x: hidden;
+}
+
 body {
+  overflow-x: hidden;
   font-family: "Open Sans", sans-serif;
   /* font-family: "Roboto", sans-serif; */
   /* font-family: "Poppins", sans-serif; */

@@ -67,7 +67,7 @@ function App() {
         <Map />
         <Forecasts />
         <Chart />
-        {/* <Cities /> */}
+        <Cities />
       </MainContainer>
     </MainLayout>
   );

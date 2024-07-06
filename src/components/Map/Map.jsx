@@ -20,14 +20,14 @@ function Map() {
   });
 
   return (
-    <section className="z-0 my-6 lg:my-0">
+    <section className="z-0 row-start-4 my-6 md:row-start-1 md:col-start-2 lg:my-0">
       <MapContainer
         center={[position.lat, position.lon]}
         zoom={9}
         scrollWheelZoom={true}
         className="h-full shadow rounded-3xl min-h-64"
       >
-        <ChangeView center={[position.lat, position.lon]} zoom={9} />
+        <ChangeView center={[position.lat, position.lon]} zoom={7} />
         <ClickLocation />
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'

@@ -3,7 +3,11 @@ import search from "../../../assets/search.svg";
 import { useRef, useState } from "react";
 import { usePositionCoordsCtx } from "../../../store/PositionCoordsCtxProvider";
 
-function Search() {
+function Search({
+  onCloseMenuHandler = () => {
+    return;
+  },
+}) {
   const [input, setInput] = useState("");
   const { setPositionCoords } = usePositionCoordsCtx();
   const [isOpen, setIsOpen] = useState(false);
@@ -48,7 +52,7 @@ function Search() {
 
   return (
     <div
-      className={`relative w-[21.1805vw] bg-white shadow z-50  ${
+      className={`relative md:w-[21.1805vw] bg-white shadow z-50 w-full mt-6 md:mt-0 mb-6 md:mb-0  md:px-0  ${
         isOpen ? "rounded-t-[20px]" : "rounded-full"
       }`}
     >
@@ -73,7 +77,7 @@ function Search() {
         />
       </form>
       <div
-        className={`absolute w-full top-10 bg-white ${
+        className={`absolute w-full top-10 bg-white  ${
           isOpen ? "rounded-b-[20px] shadow-2xl" : ""
         }`}
       >
@@ -85,6 +89,7 @@ function Search() {
                 className="relative w-full py-3 cursor-pointer px-11 hover:bg-gray-200"
                 onClick={() => {
                   showCity(cityData);
+                  onCloseMenuHandler();
                 }}
               >
                 {" "}
