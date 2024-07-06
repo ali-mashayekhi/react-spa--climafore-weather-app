@@ -122,7 +122,7 @@ function Header() {
         <p className="text-base font-bold text-center ">{dateString}</p>
         <div className="flex gap-5 ">
           <Search />
-          <div className="dark-mod-btn">
+          {/* <div className="dark-mod-btn">
             <input
               className="hidden w-0 h-0 darkmod-btn"
               type="checkbox"
@@ -167,7 +167,7 @@ function Header() {
                 />
               </svg>
             </label>
-          </div>
+          </div> */}
           <div className="temp-btn">
             <input
               type="checkbox"
