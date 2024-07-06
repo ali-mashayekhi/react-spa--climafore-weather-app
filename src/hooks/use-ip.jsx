@@ -14,7 +14,7 @@ function useIp(geolocationError) {
 export default useIp;
 
 async function getCoordsByIp() {
-  const response = await fetch("https://ipapi.co/json/");
+  const response = await fetch("https://freeipapi.com/api/json/");
   if (!response.ok) throw new Error("Something Goes Wrong");
 
   return response.json();

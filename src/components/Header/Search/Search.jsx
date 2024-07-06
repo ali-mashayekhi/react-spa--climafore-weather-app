@@ -56,7 +56,7 @@ function Search() {
         <input
           type="text"
           placeholder="search"
-          className={`py-2 bg-transparent px-11  ${
+          className={`py-2 bg-transparent px-11 w-full  ${
             isOpen
               ? "focus:outline-none"
               : "focus:outline-gray-400 rounded-full"
