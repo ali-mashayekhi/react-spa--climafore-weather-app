@@ -6,7 +6,6 @@ function useIp(geolocationError) {
     queryFn: getCoordsByIp,
     enabled: !!geolocationError,
   });
-  console.log(coords);
 
   return coords;
 }

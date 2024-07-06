@@ -6,8 +6,6 @@ function useLocation(positionCoords) {
     if (positionCoords.length > 1) {
       location = useQueries({
         queries: positionCoords.map((position) => {
-          console.log(position);
-
           return {
             queryKey: ["location", position],
             queryFn: () => fetchLocation(position),

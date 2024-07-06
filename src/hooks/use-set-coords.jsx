@@ -28,10 +28,6 @@ function useSetCoords() {
       lat: coords?.data?.latitude,
       lon: coords?.data?.longitude,
     });
-    console.log({
-      lat: coords?.data?.latitude,
-      lon: coords?.data?.longitude,
-    });
   }, [coords.data]);
 
   if (coords.isError)
